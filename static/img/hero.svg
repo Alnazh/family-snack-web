@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400">
+<defs>
+<linearGradient id="hbag" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#7a0e1f"/>
+<stop offset="1" stop-color="#a3152b"/>
+</linearGradient>
+</defs>
+<rect width="500" height="400" fill="#fdfaf6"/>
+<circle cx="250" cy="200" r="150" fill="#fdecc8" opacity="0.6"/>
+<path d="M170 90 Q250 50 330 90 L350 320 Q250 355 150 320 Z" fill="url(#hbag)"/>
+<rect x="170" y="82" width="160" height="30" rx="10" fill="#5c0a17"/>
+<text x="250" y="200" font-family="Poppins, sans-serif" font-size="30" font-weight="800" fill="#ffffff" text-anchor="middle">KRIPCA</text>
+<text x="250" y="232" font-family="Poppins, sans-serif" font-size="16" fill="#fdecc8" text-anchor="middle">Keripik Kaca Renyah</text>
+</svg>

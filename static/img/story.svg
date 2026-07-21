@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300">
+<rect width="500" height="300" fill="#f0e2c8"/>
+<circle cx="120" cy="150" r="70" fill="#e3c98f"/>
+<circle cx="260" cy="150" r="70" fill="#ecd6a2"/>
+<circle cx="380" cy="150" r="55" fill="#e3c98f"/>
+<text x="250" y="270" font-family="Poppins, sans-serif" font-size="16" fill="#5c0a17" text-anchor="middle">Diolah dengan resep keluarga turun-temurun</text>
+</svg>

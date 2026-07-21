@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+<defs>
+<linearGradient id="bag" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#c2410c"/>
+<stop offset="1" stop-color="#7a0e1f"/>
+</linearGradient>
+</defs>
+<rect x="0" y="0" width="300" height="300" fill="none"/>
+<path d="M90 40 Q150 10 210 40 L225 260 Q150 285 75 260 Z" fill="url(#bag)"/>
+<rect x="90" y="35" width="120" height="26" rx="8" fill="#7a0e1f"/>
+<circle cx="150" cy="150" r="58" fill="#ffffff" opacity="0.14"/>
+<text x="150" y="145" font-family="Poppins, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">KRIPCA</text>
+<text x="150" y="172" font-family="Poppins, sans-serif" font-size="14" fill="#fdecc8" text-anchor="middle">Ghost Chili</text>
+</svg>

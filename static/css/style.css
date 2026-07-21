@@ -1,0 +1,420 @@
+/* palet warna brand Family Snack */
+:root {
+  --fs-maroon: #7a0e1f;
+  --fs-maroon-dark: #5c0a17;
+  --fs-gold: #f5b800;
+  --fs-gold-dark: #d9a300;
+  --fs-cream: #f7f5f1;
+  --fs-text: #2b2320;
+  --fs-muted: #6b625d;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--fs-text);
+  background-color: var(--fs-cream);
+}
+
+.fs-logo {
+  font-family: 'Baloo 2', cursive;
+  font-weight: 800;
+  color: var(--fs-maroon);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.fs-logo-icon {
+  background: var(--fs-maroon);
+  color: var(--fs-gold);
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.fs-logo-icon-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* navbar */
+.fs-navbar {
+  background: #ffffff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 14px 0;
+}
+
+.fs-nav-links .nav-link {
+  color: var(--fs-text);
+  font-weight: 500;
+  margin: 0 12px;
+}
+
+.fs-nav-links .nav-link.active {
+  color: var(--fs-maroon);
+  font-weight: 700;
+  border-bottom: 2px solid var(--fs-maroon);
+}
+
+.fs-cart-link {
+  position: relative;
+  color: var(--fs-maroon);
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.fs-cart-badge {
+  background: var(--fs-gold);
+  color: var(--fs-maroon-dark);
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -8px;
+  right: -12px;
+}
+
+/* tombol umum */
+.fs-btn-maroon {
+  background: var(--fs-maroon);
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.fs-btn-maroon:hover {
+  background: var(--fs-maroon-dark);
+  color: #fff;
+}
+
+.fs-btn-gold {
+  background: var(--fs-gold);
+  color: var(--fs-maroon-dark);
+  border: none;
+  padding: 12px 26px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.fs-btn-gold:hover {
+  background: var(--fs-gold-dark);
+  color: var(--fs-maroon-dark);
+}
+
+.fs-btn-outline {
+  border: 2px solid var(--fs-maroon);
+  color: var(--fs-maroon);
+  padding: 10px 26px;
+  border-radius: 8px;
+  font-weight: 600;
+  background: transparent;
+}
+
+/* hero beranda */
+.fs-hero {
+  padding: 70px 0;
+  background: linear-gradient(180deg, #fdfaf6 0%, var(--fs-cream) 100%);
+}
+
+.fs-hero h1 {
+  font-family: 'Baloo 2', cursive;
+  font-weight: 800;
+  color: var(--fs-maroon);
+  font-size: 2.8rem;
+  line-height: 1.15;
+}
+
+.fs-hero-img {
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 20px 40px rgba(122,14,31,0.15);
+}
+
+.fs-hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* kartu fitur */
+.fs-feature-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  height: 100%;
+}
+
+.fs-feature-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(122,14,31,0.08);
+  color: var(--fs-maroon);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  font-size: 1.6rem;
+}
+
+/* kartu produk */
+.fs-product-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+  height: 100%;
+  transition: transform 0.2s ease;
+}
+
+.fs-product-card:hover {
+  transform: translateY(-4px);
+}
+
+.fs-product-img {
+  position: relative;
+  background: #f1e6d8;
+  overflow: hidden;
+}
+
+.fs-product-img img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+}
+
+.fs-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--fs-gold);
+  color: var(--fs-maroon-dark);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.fs-product-body {
+  padding: 18px;
+}
+
+.fs-product-price {
+  color: var(--fs-maroon);
+  font-weight: 800;
+  font-size: 1.15rem;
+}
+
+.fs-tag {
+  display: inline-block;
+  background: var(--fs-cream);
+  border: 1px solid #e6ddd3;
+  color: var(--fs-muted);
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.fs-rating {
+  color: var(--fs-gold-dark);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* section umum */
+.fs-section {
+  padding: 70px 0;
+}
+
+.fs-section-alt {
+  background: #fbf8f4;
+}
+
+.fs-section-label {
+  color: var(--fs-gold-dark);
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.fs-section-title {
+  font-family: 'Baloo 2', cursive;
+  color: var(--fs-maroon);
+  font-weight: 800;
+}
+
+/* testimoni */
+.fs-testi-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px;
+  height: 100%;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+}
+
+/* hero halaman dalam (produk, kontak, dsb) */
+.fs-page-hero {
+  background: linear-gradient(120deg, var(--fs-maroon) 0%, var(--fs-maroon-dark) 100%);
+  color: #fff;
+  padding: 60px 0;
+}
+
+.fs-page-hero h1 {
+  font-family: 'Baloo 2', cursive;
+  font-weight: 800;
+  color: var(--fs-gold);
+}
+
+/* filter kategori produk */
+.fs-filter-bar {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+}
+
+.fs-filter-btn {
+  border-radius: 30px;
+  padding: 8px 20px;
+  border: 1px solid #e6ddd3;
+  background: #fff;
+  color: var(--fs-text);
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+.fs-filter-btn.active {
+  background: var(--fs-maroon);
+  color: #fff;
+  border-color: var(--fs-maroon);
+}
+
+/* form kontak dan checkout */
+.fs-form-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+.fs-form-card .form-control,
+.fs-form-card .form-select {
+  background: var(--fs-cream);
+  border: 1px solid #e6ddd3;
+  padding: 12px 14px;
+  border-radius: 10px;
+}
+
+.fs-info-card {
+  background: #fdecc8;
+  border-radius: 16px;
+  padding: 32px;
+}
+
+/* peta lokasi kontak */
+.fs-map-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  margin-top: 20px;
+  position: relative;
+}
+
+.fs-map-link {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  background: #fff;
+  color: var(--fs-maroon);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* footer */
+.fs-footer {
+  background: var(--fs-maroon);
+}
+
+.fs-footer-text {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.9rem;
+}
+
+.fs-footer-links a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.fs-footer-links a:hover {
+  color: var(--fs-gold);
+}
+
+.fs-footer-line {
+  border-color: rgba(255,255,255,0.15);
+}
+
+/* keranjang dan checkout */
+.fs-cart-item {
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.fs-summary-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 100px;
+}
+
+.fs-step-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--fs-maroon);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+@media (max-width: 991px) {
+  .fs-hero { padding: 40px 0; text-align: center; }
+  .fs-hero h1 { font-size: 2.1rem; }
+  .fs-cart-link { margin-top: 12px; }
+}

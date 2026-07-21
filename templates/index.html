@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block title %}Family Snack - Kerenyahan Warisan Keluarga{% endblock %}
+{% block content %}
+
+<!-- hero section -->
+<section class="fs-hero">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <h1>Rasakan Kerenyahan Warisan Keluarga.</h1>
+        <p class="mt-3 text-muted fs-5">Temukan beragam camilan tradisional, mulai dari Kulit Krispy, Usus Crispy yang gurih, Makroni pedas, hingga Kripca khas kami. Dibumbui secara autentik untuk pengalaman yang bikin nagih.</p>
+        <a href="{{ url_for('produk') }}" class="btn fs-btn-maroon mt-3">Belanja Sekarang</a>
+      </div>
+      <div class="col-lg-6">
+        <div class="fs-hero-img">
+          <img src="{{ url_for('static', filename='img/kripca_beranda.png') }}" alt="Kripca Family Snack">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- keunggulan produk -->
+<section class="fs-section fs-section-alt">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="fs-feature-card">
+          <div class="fs-feature-icon"><i class="bi bi-emoji-smile"></i></div>
+          <h5>Kerenyahan Maksimal</h5>
+          <p class="text-muted mb-0">Digoreng dan dikeringkan secara ahli untuk sensasi kriuk di setiap gigitan.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="fs-feature-card">
+          <div class="fs-feature-icon"><i class="bi bi-fire"></i></div>
+          <h5>Bumbu Melimpah</h5>
+          <p class="text-muted mb-0">Lapisan bumbu autentik yang kaya, memberikan rasa konsisten di setiap bagian.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="fs-feature-card">
+          <div class="fs-feature-icon"><i class="bi bi-patch-check"></i></div>
+          <h5>Proses Higienis</h5>
+          <p class="text-muted mb-0">Dibuat dengan standar modern food-grade dan bahan pilihan berkualitas tinggi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- produk terlaris -->
+<section class="fs-section">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-end mb-4">
+      <div>
+        <p class="fs-section-label mb-1">Produk Terlaris</p>
+        <h2 class="fs-section-title">Camilan Paling Dicari</h2>
+      </div>
+      <a href="{{ url_for('produk') }}" class="text-decoration-none fw-semibold" style="color: var(--fs-maroon);">Lihat Semua &rarr;</a>
+    </div>
+    <div class="row g-4">
+      {% for p in products %}
+      <div class="col-md-6 col-lg-3">
+        <div class="fs-product-card">
+          <div class="fs-product-img">
+            {% if p['badge'] %}<span class="fs-badge">{{ p['badge'] }}</span>{% endif %}
+            <img src="{{ url_for('static', filename='img/' ~ p['image']) }}" alt="{{ p['name'] }}">
+          </div>
+          <div class="fs-product-body">
+            <div class="d-flex justify-content-between align-items-start">
+              <h6 class="mb-1">{{ p['name'] }}</h6>
+              <span class="fs-rating"><i class="bi bi-star-fill"></i> {{ p['rating'] }}</span>
+            </div>
+            <span class="fs-tag">{{ p['tag'] }}</span>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="fs-product-price">Rp {{ "{:,}".format(p['price']).replace(',', '.') }}</span>
+              <a href="{{ url_for('produk_detail', product_id=p['id']) }}" class="btn btn-sm fs-btn-gold"><i class="bi bi-plus-lg"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- testimoni pelanggan -->
+<section class="fs-section fs-section-alt">
+  <div class="container">
+    <h2 class="fs-section-title text-center mb-5">Apa Kata Penikmat Snack Kami</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="fs-testi-card">
+          <div class="fs-rating mb-2">★★★★★</div>
+          <p class="text-muted">"Kulit Krispy-nya juara banget, tetap renyah berhari-hari dan bumbunya pas."</p>
+          <h6 class="mb-0">Sarah J.</h6>
+          <small class="text-muted">Pembeli Terverifikasi</small>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="fs-testi-card">
+          <div class="fs-rating mb-2">★★★★★</div>
+          <p class="text-muted">"Keluarga saya suka sekali dengan Usus Crispy dan Seblak Keringnya. Kualitasnya konsisten."</p>
+          <h6 class="mb-0">Michael T.</h6>
+          <small class="text-muted">Pecinta Camilan</small>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="fs-testi-card">
+          <div class="fs-rating mb-2">★★★★★</div>
+          <p class="text-muted">"Akhirnya ada brand yang menawarkan camilan tradisional favorit dengan kemasan premium."</p>
+          <h6 class="mb-0">Amanda K.</h6>
+          <small class="text-muted">Food Blogger</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300">
+<rect width="500" height="300" fill="#fbe4c4"/>
+<rect x="60" y="180" width="380" height="16" fill="#c99a5b"/>
+<circle cx="130" cy="130" r="34" fill="#a3152b"/>
+<circle cx="210" cy="115" r="34" fill="#d9a300"/>
+<circle cx="290" cy="130" r="34" fill="#7a0e1f"/>
+<circle cx="370" cy="120" r="34" fill="#c2410c"/>
+<text x="250" y="250" font-family="Poppins, sans-serif" font-size="16" fill="#5c0a17" text-anchor="middle">Kehangatan keluarga di setiap gigitan</text>
+</svg>

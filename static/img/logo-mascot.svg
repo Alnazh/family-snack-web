@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+<rect width="400" height="400" rx="24" fill="#a3152b"/>
+<circle cx="200" cy="170" r="90" fill="#fdecc8"/>
+<circle cx="170" cy="160" r="10" fill="#2b2320"/>
+<circle cx="230" cy="160" r="10" fill="#2b2320"/>
+<path d="M170 200 Q200 220 230 200" stroke="#2b2320" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M120 110 Q200 60 280 110" stroke="#ffffff" stroke-width="18" fill="none" stroke-linecap="round"/>
+<text x="200" y="330" font-family="Baloo 2, cursive" font-size="34" font-weight="800" fill="#f5b800" text-anchor="middle">Family Snack</text>
+<text x="200" y="360" font-family="Poppins, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle">Rasa Renyah Untuk Semua Keluarga</text>
+</svg>
