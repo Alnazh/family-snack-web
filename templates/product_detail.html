@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}{{ product['name'] }} - Family Snack{% endblock %}
+{% block content %}
+
+<section class="fs-section">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ url_for('produk') }}">Produk</a></li>
+        <li class="breadcrumb-item active">{{ product['name'] }}</li>
+      </ol>
+    </nav>
+
+    <div class="row g-5">
+      <div class="col-lg-5">
+        <div class="fs-product-img rounded-4" style="height: 420px;">
+          {% if product['badge'] %}<span class="fs-badge">{{ product['badge'] }}</span>{% endif %}
+          <img src="{{ url_for('static', filename='img/' ~ product['image']) }}" alt="{{ product['name'] }}" style="height: 100%;">
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <span class="fs-tag">{{ product['category'] }}</span>
+        <h2 class="fs-section-title mt-2">{{ product['name'] }}</h2>
+        <span class="fs-rating fs-5"><i class="bi bi-star-fill"></i> {{ product['rating'] }} / 5.0</span>
+        <p class="text-muted mt-3">{{ product['description'] }}</p>
+        <h3 class="fs-product-price my-3">Rp {{ "{:,}".format(product['price']).replace(',', '.') }}</h3>
+
+        <!-- form tambah ke keranjang -->
+        <form method="POST" action="{{ url_for('tambah_keranjang', product_id=product['id']) }}" class="d-flex align-items-center gap-3">
+          <div class="input-group" style="max-width: 150px;">
+            <button class="btn btn-outline-secondary" type="button" data-qty-minus="qtyInput">-</button>
+            <input type="number" id="qtyInput" name="qty" value="1" min="1" class="form-control text-center">
+            <button class="btn btn-outline-secondary" type="button" data-qty-plus="qtyInput">+</button>
+          </div>
+          <button type="submit" class="btn fs-btn-maroon"><i class="bi bi-cart-plus me-1"></i> Tambah ke Keranjang</button>
+        </form>
+
+        <div class="row mt-4 g-3">
+          <div class="col-4 text-center">
+            <i class="bi bi-emoji-smile fs-3" style="color: var(--fs-maroon);"></i>
+            <p class="small text-muted mb-0">Renyah Maksimal</p>
+          </div>
+          <div class="col-4 text-center">
+            <i class="bi bi-fire fs-3" style="color: var(--fs-maroon);"></i>
+            <p class="small text-muted mb-0">Bumbu Melimpah</p>
+          </div>
+          <div class="col-4 text-center">
+            <i class="bi bi-patch-check fs-3" style="color: var(--fs-maroon);"></i>
+            <p class="small text-muted mb-0">Higienis</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% if terkait %}
+    <h4 class="fs-section-title mt-5 mb-4">Camilan Lainnya</h4>
+    <div class="row g-4">
+      {% for p in terkait %}
+      <div class="col-md-4">
+        <div class="fs-product-card">
+          <div class="fs-product-img">
+            <img src="{{ url_for('static', filename='img/' ~ p['image']) }}" alt="{{ p['name'] }}">
+          </div>
+          <div class="fs-product-body">
+            <h6>{{ p['name'] }}</h6>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="fs-product-price">Rp {{ "{:,}".format(p['price']).replace(',', '.') }}</span>
+              <a href="{{ url_for('produk_detail', product_id=p['id']) }}" class="btn btn-sm fs-btn-gold">Detail</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

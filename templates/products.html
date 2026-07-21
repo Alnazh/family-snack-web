@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Koleksi Camilan Kami - Family Snack{% endblock %}
+{% block content %}
+
+<section class="fs-page-hero text-center">
+  <div class="container">
+    <h1 class="display-6">Koleksi Camilan Kami</h1>
+    <p class="mb-0">Nikmati cita rasa otentik dari warisan renyah kami, dibuat dari resep keluarga turun-temurun.</p>
+  </div>
+</section>
+
+<section class="fs-section">
+  <div class="container">
+
+    <!-- filter kategori dan pencarian -->
+    <div class="fs-filter-bar d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+      <div>
+        {% for k in kategori_list %}
+        <a href="{{ url_for('produk', kategori=k, cari=cari) }}" class="btn fs-filter-btn {% if kategori_aktif == k %}active{% endif %}">{{ k }}</a>
+        {% endfor %}
+      </div>
+      <form class="d-flex" method="get" action="{{ url_for('produk') }}">
+        <input type="hidden" name="kategori" value="{{ kategori_aktif }}">
+        <input type="text" name="cari" value="{{ cari }}" class="form-control me-2" placeholder="Cari camilan...">
+        <button class="btn fs-btn-maroon" type="submit"><i class="bi bi-search"></i></button>
+      </form>
+    </div>
+
+    <div class="row g-4">
+      {% for p in products %}
+      <div class="col-md-6 col-lg-3">
+        <div class="fs-product-card">
+          <div class="fs-product-img">
+            {% if p['badge'] %}<span class="fs-badge">{{ p['badge'] }}</span>{% endif %}
+            <img src="{{ url_for('static', filename='img/' ~ p['image']) }}" alt="{{ p['name'] }}">
+          </div>
+          <div class="fs-product-body">
+            <div class="d-flex justify-content-between align-items-start">
+              <h6 class="mb-1">{{ p['name'] }}</h6>
+              <span class="fs-rating"><i class="bi bi-star-fill"></i> {{ p['rating'] }}</span>
+            </div>
+            <p class="text-muted small mb-2">{{ p['description'][:70] }}...</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="fs-product-price">Rp {{ "{:,}".format(p['price']).replace(',', '.') }}</span>
+              <a href="{{ url_for('produk_detail', product_id=p['id']) }}" class="btn btn-sm fs-btn-gold">Detail</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% else %}
+      <div class="col-12 text-center text-muted py-5">
+        <p>Produk tidak ditemukan, coba kata kunci lain.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}
