@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Keranjang - Family Snack{% endblock %}
+{% block content %}
+
+<section class="fs-section">
+  <div class="container">
+    <h2 class="fs-section-title mb-4">Keranjang Belanja</h2>
+
+    {% if items %}
+    <div class="row g-4">
+      <div class="col-lg-8">
+        {% for item in items %}
+        <div class="fs-cart-item d-flex align-items-center justify-content-between mb-3">
+          <div class="d-flex align-items-center gap-3">
+            <img src="{{ url_for('static', filename='img/' ~ item['product']['image']) }}" alt="{{ item['product']['name'] }}" width="60" height="60" style="object-fit: contain;">
+            <div>
+              <h6 class="mb-1">{{ item['product']['name'] }}</h6>
+              <small class="text-muted">Rp {{ "{:,}".format(item['product']['price']).replace(',', '.') }} x {{ item['qty'] }}</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center gap-3">
+            <span class="fw-bold" style="color: var(--fs-maroon);">Rp {{ "{:,}".format(item['subtotal']).replace(',', '.') }}</span>
+            <form method="POST" action="{{ url_for('hapus_keranjang', product_id=item['product']['id']) }}">
+              <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+            </form>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="col-lg-4">
+        <div class="fs-summary-card">
+          <h5 class="mb-3">Ringkasan Belanja</h5>
+          <div class="d-flex justify-content-between mb-2">
+            <span class="text-muted">Total Item</span>
+            <span>{{ items|length }} produk</span>
+          </div>
+          <div class="d-flex justify-content-between mb-3">
+            <span class="text-muted">Total Harga</span>
+            <span class="fw-bold">Rp {{ "{:,}".format(total).replace(',', '.') }}</span>
+          </div>
+          <a href="{{ url_for('checkout') }}" class="btn fs-btn-maroon w-100">Lanjut ke Checkout</a>
+        </div>
+      </div>
+    </div>
+    {% else %}
+    <div class="text-center py-5">
+      <i class="bi bi-cart-x display-1 text-muted"></i>
+      <p class="text-muted mt-3">Keranjang Anda masih kosong.</p>
+      <a href="{{ url_for('produk') }}" class="btn fs-btn-maroon">Mulai Belanja</a>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

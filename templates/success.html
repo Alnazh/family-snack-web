@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Pesanan Berhasil - Family Snack{% endblock %}
+{% block content %}
+
+<section class="fs-section text-center">
+  <div class="container" style="max-width: 600px;">
+    <i class="bi bi-check-circle-fill display-1" style="color: var(--fs-maroon);"></i>
+    <h2 class="fs-section-title mt-3">Pesanan Berhasil Dibuat!</h2>
+    <p class="text-muted">Terima kasih {{ order['full_name'] }}, pesanan Anda dengan nomor <strong>#{{ order['id'] }}</strong> sedang kami proses.</p>
+
+    <div class="fs-form-card text-start mt-4">
+      {% for item in order_items %}
+      <div class="d-flex justify-content-between mb-2">
+        <span>{{ item['product']['name'] }} x{{ item['qty'] }}</span>
+        <span>Rp {{ "{:,}".format(item['subtotal']).replace(',', '.') }}</span>
+      </div>
+      {% endfor %}
+      <hr>
+      <div class="d-flex justify-content-between fw-bold">
+        <span>Total</span>
+        <span>Rp {{ "{:,}".format(order['total']).replace(',', '.') }}</span>
+      </div>
+    </div>
+
+    <a href="{{ url_for('home') }}" class="btn fs-btn-maroon mt-4">Kembali ke Beranda</a>
+  </div>
+</section>
+
+{% endblock %}

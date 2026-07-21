@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Checkout - Family Snack{% endblock %}
+{% block content %}
+
+<section class="fs-section">
+  <div class="container">
+    <h2 class="fs-section-title mb-4">Checkout</h2>
+
+    <div class="row g-4">
+      <div class="col-lg-7">
+        <div class="fs-form-card">
+          <h5 class="mb-3">Data Pengiriman</h5>
+
+          <!-- form checkout dengan validasi bootstrap dan server side -->
+          <form method="POST" class="needs-validation" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Nama Penerima</label>
+                <input type="text" name="full_name" class="form-control" value="{{ form.get('full_name','') }}" minlength="3" required>
+                <div class="invalid-feedback">Nama minimal 3 karakter.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" value="{{ form.get('email','') }}" required>
+                <div class="invalid-feedback">Masukkan email yang valid.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Nomor Telepon</label>
+                <input type="text" name="phone" class="form-control" value="{{ form.get('phone','') }}" pattern="[0-9+]{9,15}" required>
+                <div class="invalid-feedback">Gunakan 9-15 digit angka.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Metode Pembayaran</label>
+                <select name="payment_method" class="form-select" required>
+                  <option value="" disabled {% if not form.get('payment_method') %}selected{% endif %}>Pilih metode</option>
+                  <option value="transfer" {% if form.get('payment_method')=='transfer' %}selected{% endif %}>Transfer Bank</option>
+                  <option value="ewallet" {% if form.get('payment_method')=='ewallet' %}selected{% endif %}>E-Wallet</option>
+                  <option value="cod" {% if form.get('payment_method')=='cod' %}selected{% endif %}>Bayar di Tempat</option>
+                </select>
+                <div class="invalid-feedback">Silakan pilih metode pembayaran.</div>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Alamat Lengkap</label>
+                <textarea name="address" class="form-control" rows="3" minlength="10" required>{{ form.get('address','') }}</textarea>
+                <div class="invalid-feedback">Alamat minimal 10 karakter.</div>
+              </div>
+            </div>
+            <button type="submit" class="btn fs-btn-maroon mt-4 w-100">Buat Pesanan</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="fs-summary-card">
+          <h5 class="mb-3">Pesanan Anda</h5>
+          {% for item in items %}
+          <div class="d-flex justify-content-between mb-2">
+            <span class="small">{{ item['product']['name'] }} x{{ item['qty'] }}</span>
+            <span class="small fw-semibold">Rp {{ "{:,}".format(item['subtotal']).replace(',', '.') }}</span>
+          </div>
+          {% endfor %}
+          <hr>
+          <div class="d-flex justify-content-between">
+            <span class="fw-bold">Total</span>
+            <span class="fw-bold" style="color: var(--fs-maroon);">Rp {{ "{:,}".format(total).replace(',', '.') }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
