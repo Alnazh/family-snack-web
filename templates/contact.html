@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% block title %}Hubungi Kami - Family Snack{% endblock %}
+{% block content %}
+
+<section class="fs-page-hero">
+  <div class="container">
+    <h1>Hubungi Kami</h1>
+    <p class="mb-0">Apakah Anda memiliki pertanyaan atau ingin berbagi cerita camilan Anda? Tim kami siap mendengarkan.</p>
+  </div>
+</section>
+
+<section class="fs-section">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-7">
+        <div class="fs-form-card">
+          <h4 class="mb-3">Kirim Pesan</h4>
+
+          <!-- form kontak dengan validasi -->
+          <form method="POST" class="needs-validation" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Nama Lengkap</label>
+                <input type="text" name="name" class="form-control" value="{{ form.get('name','') }}" minlength="3" required>
+                <div class="invalid-feedback">Nama minimal 3 karakter.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Alamat Email</label>
+                <input type="email" name="email" class="form-control" value="{{ form.get('email','') }}" required>
+                <div class="invalid-feedback">Masukkan email yang valid.</div>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Subjek</label>
+                <select name="subject" class="form-select" required>
+                  <option value="" disabled {% if not form.get('subject') %}selected{% endif %}>Pilih subjek</option>
+                  <option value="Pertanyaan Produk" {% if form.get('subject')=='Pertanyaan Produk' %}selected{% endif %}>Pertanyaan Produk</option>
+                  <option value="Kemitraan Reseller" {% if form.get('subject')=='Kemitraan Reseller' %}selected{% endif %}>Kemitraan Reseller</option>
+                  <option value="Keluhan" {% if form.get('subject')=='Keluhan' %}selected{% endif %}>Keluhan</option>
+                </select>
+                <div class="invalid-feedback">Silakan pilih subjek.</div>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Pesan</label>
+                <textarea name="message" class="form-control" rows="4" minlength="10" placeholder="Tuliskan pesan Anda di sini..." required>{{ form.get('message','') }}</textarea>
+                <div class="invalid-feedback">Pesan minimal 10 karakter.</div>
+              </div>
+            </div>
+            <button type="submit" class="btn fs-btn-maroon mt-4">Kirim Pesan</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="fs-info-card mb-4">
+          <h5 class="mb-3">Informasi Kontak</h5>
+          <div class="d-flex gap-3 mb-3">
+            <i class="bi bi-geo-alt fs-4" style="color: var(--fs-maroon);"></i>
+            <div>
+              <strong>Alamat Kantor</strong>
+              <p class="text-muted mb-0">Gedung Camilan Nusantara, Lt. 2<br>Jl. Raya Laswi No. 82, Majalaya<br>Kabupaten Bandung, Jawa Barat 40382</p>
+            </div>
+          </div>
+          <div class="d-flex gap-3 mb-3">
+            <i class="bi bi-telephone fs-4" style="color: var(--fs-maroon);"></i>
+            <div>
+              <strong>Telepon</strong>
+              <p class="text-muted mb-0">+62 8211 2345 678</p>
+            </div>
+          </div>
+          <div class="d-flex gap-3">
+            <i class="bi bi-envelope fs-4" style="color: var(--fs-maroon);"></i>
+            <div>
+              <strong>Email Dukungan</strong>
+              <p class="text-muted mb-0">halo@familysnack.id</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- peta lokasi kantor -->
+        <div class="fs-map-card">
+          <iframe
+            src="https://www.google.com/maps?q=Majalaya,Kabupaten+Bandung,Jawa+Barat&output=embed"
+            width="100%" height="260" style="border:0;" allowfullscreen loading="lazy">
+          </iframe>
+          <a href="https://www.google.com/maps?q=Majalaya,Kabupaten+Bandung,Jawa+Barat" target="_blank" class="fs-map-link">
+            <i class="bi bi-box-arrow-up-right me-1"></i> Buka di Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fs-section fs-section-alt">
+  <div class="container">
+    <h2 class="fs-section-title text-center mb-5">Pertanyaan Umum (FAQ)</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="fs-feature-card text-start">
+          <i class="bi bi-truck fs-3 mb-3" style="color: var(--fs-maroon);"></i>
+          <h6>Informasi Pengiriman?</h6>
+          <p class="text-muted small mb-0">Kami melayani pengiriman ke seluruh Indonesia dengan estimasi 2-5 hari kerja.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="fs-feature-card text-start">
+          <i class="bi bi-box-seam fs-3 mb-3" style="color: var(--fs-maroon);"></i>
+          <h6>Pesanan Grosir?</h6>
+          <p class="text-muted small mb-0">Kami menyediakan harga khusus untuk kemitraan reseller atau pesanan acara besar.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="fs-feature-card text-start">
+          <i class="bi bi-exclamation-triangle fs-3 mb-3" style="color: var(--fs-maroon);"></i>
+          <h6>Info Alergi?</h6>
+          <p class="text-muted small mb-0">Setiap kemasan kami memiliki label nutrisi dan peringatan alergen yang jelas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
