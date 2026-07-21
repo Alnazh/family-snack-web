@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+venv/
+env/
+family_snack.db
+.DS_Store
